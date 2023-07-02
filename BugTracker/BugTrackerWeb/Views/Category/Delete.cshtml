@@ -1,0 +1,36 @@
+﻿@model Category
+
+<form method="post" asp-action="DeletePOST">
+	<input asp-for="Id" hidden/>
+	<div class="border p-3 mt-4">
+		<div align="center">
+			<h2 class="text-primary">Delete Category</h2>
+		</div>
+		<hr />
+		<div class="mb-3">
+			<label asp-for="Title"></label>
+			<input asp-for="Title" disabled class="form-control"/>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Issue"></label>
+			<input asp-for="Issue" class="form-control" class="border p-3 mt-4"/>
+			<span asp-validation-for="Issue" disabled class="text-danger"></span>
+
+		</div>
+		<div class="mb-3">
+			<label asp-for="Solution"></label>
+			<input asp-for="Solution" disabled class="form-control"/>
+			<br />
+@*		</div>
+				<div class="mb-3">
+			<label asp-for="User"></label>
+			<input asp-for="User" disabled class="form-control"/>
+
+		</div>*@
+		<button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+		<a asp-controller="Category" asp-action="Index" class="btn btn-secondary style="width:150px">
+			Back To List
+		</a>
+	</div>
+
+</form>

@@ -1,0 +1,47 @@
+﻿
+@model Category
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<form method="post">
+	<div class="border p-3 mt-4">
+		<div align="center">
+			<h2 class="text-primary">Create Category</h2>
+		</div>
+		<hr />
+		<div class="mb-3">
+			<label asp-for="Title"></label>
+			<input asp-for="Title" class="form-control"/>
+			<span asp-validation-for="Title" class="text-danger"></span>
+		</div>
+		<div class="mb-3">
+			<label asp-for="Issue"></label>
+			<input asp-for="Issue" class="form-control" class="border p-3 mt-4"/>
+			<span asp-validation-for="Issue" class="text-danger"></span>
+
+		</div>
+		<div class="mb-3">
+			<label asp-for="Solution"></label>
+			<input asp-for="Solution" class="form-control"/>
+			<span asp-validation-for="Solution" class="text-danger"></span>
+
+		</div>
+				<div class="mb-3">
+			<label asp-for="User" hidden></label>
+			<input asp-for="User" value="@User.Identity?.Name" class="form-control" hidden/>
+			<span asp-validation-for="User" class="text-danger"></span>
+
+		</div>
+		<button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+		<a asp-controller="Category" asp-action="Index" class="btn btn-secondary style="width:150px">
+			Back To List
+		</a>
+	</div>
+
+</form>
+@section Scripts{
+	@{
+	<partial name="_ValidationScriptsPartial"/>
+	}
+}
