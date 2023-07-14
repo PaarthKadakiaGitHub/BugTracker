@@ -1,5 +1,7 @@
 ﻿@model Category
-
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 <form method="post" asp-action="Edit">
 	<div class="border p-3 mt-4">
 		<div align="center">
@@ -23,14 +25,13 @@
 			<span asp-validation-for="Solution" class="text-danger"></span>
 						<br />
 
-@*
 		</div>
 				<div class="mb-3">
-			<label asp-for="User"></label>
-			<input asp-for="User" class="form-control"/>
+			<label asp-for="User" hidden></label>
+			<input asp-for="User" value="@User.Identity?.Name" class="form-control" hidden/>
 			<span asp-validation-for="User" class="text-danger"></span>
 
-		</div>*@
+		</div>
 		<button type="submit" class="btn btn-primary" style="width:150px">Update</button>
 		<a asp-controller="Category" asp-action="Index" class="btn btn-secondary style="width:150px">
 			Back To List
