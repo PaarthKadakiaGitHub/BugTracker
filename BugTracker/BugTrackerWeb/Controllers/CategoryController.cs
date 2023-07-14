@@ -22,7 +22,7 @@ namespace BugTrackerWeb.Controllers
         {
 
             IEnumerable<Category> objCategoryList = _db.Categories;
-            return View(objCategoryList);
+            return View(objCategoryList.Reverse());
 
         }
         public IActionResult Create()
